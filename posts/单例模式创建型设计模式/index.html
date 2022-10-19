@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title> - My New Hugo Site</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="" />
+<meta property="og:description" content="单例模式(创建型设计模式) 一.饿汉式 public class Singleton { //1.在本类中维护一个私有构造方法 private Singleton() { } //2.封装一个静态私有本类成员变量并初始化. private static Singleton singleton = new Singleton(); //2.提供一个全局可以访问的静态方法用于获取到本类对象 public static Singleton getInstance() { return singleton; //返回本类成员变量 } } 类加载初始化阶段已经创建完成，所以无多线程问题
+反射破坏：加入构造方法抛出异常
+序列化：序列化核心方法是readResovle，可以创建此方法，并将全局对象返回
+Unsafe类：sun.misc.Unsafe反射获得对象，调用allocateInstance方法（直接操作内存，人为可控）
+枚举 public enum Singleton { SINGLETON; //声明一个本类的对象名称 //不需要声明任何成员变量 //声明成员方法 public void show() { System.out.println(&#34;Singleton类的show方法执行了!&#34;); } //重写toString是因为默认父类Enum的toString会打印该对象名称无法看到十六进制哈希值,重写后逻辑为打印十六进制哈希值. @Override public String toString() { return &#34;类名称&#34; &#43; this.getClass().getName() &#43; &#34; 地址值:&#34; &#43; Integer.toHexString(hashCode()); } } public class SingletonTest { public static void main(String[] args) { //通过枚举类型." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" /><meta property="article:section" content="posts" />
+
+<meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="单例模式(创建型设计模式) 一.饿汉式 public class Singleton { //1.在本类中维护一个私有构造方法 private Singleton() { } //2.封装一个静态私有本类成员变量并初始化. private static Singleton singleton = new Singleton(); //2.提供一个全局可以访问的静态方法用于获取到本类对象 public static Singleton getInstance() { return singleton; //返回本类成员变量 } } 类加载初始化阶段已经创建完成，所以无多线程问题
+反射破坏：加入构造方法抛出异常
+序列化：序列化核心方法是readResovle，可以创建此方法，并将全局对象返回
+Unsafe类：sun.misc.Unsafe反射获得对象，调用allocateInstance方法（直接操作内存，人为可控）
+枚举 public enum Singleton { SINGLETON; //声明一个本类的对象名称 //不需要声明任何成员变量 //声明成员方法 public void show() { System.out.println(&#34;Singleton类的show方法执行了!&#34;); } //重写toString是因为默认父类Enum的toString会打印该对象名称无法看到十六进制哈希值,重写后逻辑为打印十六进制哈希值. @Override public String toString() { return &#34;类名称&#34; &#43; this.getClass().getName() &#43; &#34; 地址值:&#34; &#43; Integer.toHexString(hashCode()); } } public class SingletonTest { public static void main(String[] args) { //通过枚举类型."/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" /><link rel="next" href="http://example.org/posts/thinking-in-java/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F\/"
+        },"genre": "posts","wordcount":  181 ,
+        "url": "http:\/\/example.org\/posts\/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F\/","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Author"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="My New Hugo Site">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="My New Hugo Site">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"></h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Author</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="0001-01-01">0001-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;181 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一饿汉式">一.饿汉式</a>
+      <ul>
+        <li><a href="#枚举">枚举</a></li>
+      </ul>
+    </li>
+    <li><a href="#懒汉模式">懒汉模式</a>
+      <ul>
+        <li><a href="#内部类懒汉">内部类懒汉</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="单例模式创建型设计模式">单例模式(创建型设计模式)</h1>
+<h2 id="一饿汉式">一.饿汉式</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Singleton</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//1.在本类中维护一个私有构造方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">Singleton</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//2.封装一个静态私有本类成员变量并初始化.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> Singleton singleton <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Singleton<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//2.提供一个全局可以访问的静态方法用于获取到本类对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Singleton <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> singleton<span style="color:#f92672">;</span> <span style="color:#75715e">//返回本类成员变量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>类加载初始化阶段已经创建完成，所以无<!-- raw HTML omitted --><strong>多线程问题</strong><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><strong>反射破坏</strong><!-- raw HTML omitted -->：加入构造方法抛出异常</p>
+<p><strong><!-- raw HTML omitted -->序列化<!-- raw HTML omitted --></strong>：序列化核心方法是<!-- raw HTML omitted --><strong>readResovle</strong><!-- raw HTML omitted -->，可以创建此方法，并将全局对象返回</p>
+<p><strong><!-- raw HTML omitted -->Unsafe类<!-- raw HTML omitted --></strong>：sun.misc.Unsafe反射获得对象，调用<!-- raw HTML omitted --><strong>allocateInstance</strong><!-- raw HTML omitted -->方法（直接操作内存，人为可控）</p>
+<h3 id="枚举">枚举</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> Singleton <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    SINGLETON<span style="color:#f92672">;</span> <span style="color:#75715e">//声明一个本类的对象名称
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//不需要声明任何成员变量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//声明成员方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">show</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Singleton类的show方法执行了!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//重写toString是因为默认父类Enum的toString会打印该对象名称无法看到十六进制哈希值,重写后逻辑为打印十六进制哈希值.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;类名称&#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; 地址值:&#34;</span> <span style="color:#f92672">+</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">toHexString</span><span style="color:#f92672">(</span>hashCode<span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SingletonTest</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//通过枚举类型.枚举项名可以获取到唯一对象.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Singleton类的唯一对象是:&#34;</span> <span style="color:#f92672">+</span> Singleton<span style="color:#f92672">.</span><span style="color:#a6e22e">SINGLETON</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        Singleton<span style="color:#f92672">.</span><span style="color:#a6e22e">SINGLETON</span><span style="color:#f92672">.</span><span style="color:#a6e22e">show</span><span style="color:#f92672">();</span> <span style="color:#75715e">//调用成员方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>通过<!-- raw HTML omitted --><strong>枚举类型.枚举项名</strong><!-- raw HTML omitted -->访问创建对象</p>
+<p>Java对于<!-- raw HTML omitted --><strong>枚举</strong><!-- raw HTML omitted -->类的**<!-- raw HTML omitted -->反射<!-- raw HTML omitted -->**有预防机制,当发现反射要创建的是一个枚举类的对象的时候,会触发错误机制,抛出运行期异常。</p>
+<p>当发现<!-- raw HTML omitted --><strong>反序列化</strong><!-- raw HTML omitted -->的是一个<!-- raw HTML omitted --><strong>枚举</strong><!-- raw HTML omitted -->对象的时候,会使用内存中存在的唯一对象进行返回。</p>
+<h2 id="懒汉模式">懒汉模式</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">//封装一个静态私有本类成员变量并赋值为NULL(不指向任何堆内存)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> Singleton singleton <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SingletonThread</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Integer CORE_POOL_SIZE <span style="color:#f92672">=</span> 20<span style="color:#f92672">;</span> <span style="color:#75715e">//核心线程数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> ThreadPoolExecutor POOL <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ThreadPoolExecutor<span style="color:#f92672">(</span>CORE_POOL_SIZE<span style="color:#f92672">,</span> CORE_POOL_SIZE<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">MILLISECONDS</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">new</span> LinkedBlockingDeque<span style="color:#f92672">&lt;&gt;());</span> <span style="color:#75715e">//初始化线程池
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 30<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//使用循环提交30次线程任务进行Singleton对象的唯一对象获取并打印.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            POOL<span style="color:#f92672">.</span><span style="color:#a6e22e">submit</span><span style="color:#f92672">(()</span> <span style="color:#f92672">-&gt;</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Singleton<span style="color:#f92672">.</span><span style="color:#a6e22e">getInstance</span><span style="color:#f92672">()));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        POOL<span style="color:#f92672">.</span><span style="color:#a6e22e">shutdown</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>具有**<!-- raw HTML omitted -->线程安全<!-- raw HTML omitted --><strong>问题：<!-- raw HTML omitted --><strong>synchronized</strong><!-- raw HTML omitted -->关键字,让它变成同步方法,任意时刻只能有一个线程进行执行可以解决线程安全问题，</strong><!-- raw HTML omitted -->缺点<!-- raw HTML omitted -->**：加锁范围太大</p>
+<p>解决方法：<!-- raw HTML omitted --><strong>双检锁模式</strong><!-- raw HTML omitted -->的核心就是在于,在初始化创建对象之前要经过两次判断,同步代码块前判断一次对象是为NULL,同步代码块中再判断一次对象是为NULL,保证执行初始化代码的时候单例对象一定为NULL,再进行初始化。</p>
+<p><strong><!-- raw HTML omitted -->volatile<!-- raw HTML omitted --></strong>：<strong><!-- raw HTML omitted -->禁止指令排序<!-- raw HTML omitted --></strong>，当禁止了重排序之后,必须按照开辟空间,数据初始化,赋值的三个步骤执行。</p>
+<h3 id="内部类懒汉">内部类懒汉</h3>
+<p>外部类用到了内部类才会进行初始化操作,不用不加载。（<strong><!-- raw HTML omitted -->懒加载<!-- raw HTML omitted --></strong>）</p>
+<p>当内部类加载的时候,会把静态内容的初始化会放到静态代码块中的执行,保证了<!-- raw HTML omitted --><strong>线程安全</strong><!-- raw HTML omitted -->。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Singleton</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//私有构造方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">Singleton</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Inner</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">static</span> Singleton singleton <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Singleton<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Singleton <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Inner<span style="color:#f92672">.</span><span style="color:#a6e22e">singleton</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 0001-01-01</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-title=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://example.org/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-title=""><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://example.org/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-title=""><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://example.org/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-title=""><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/posts/thinking-in-java/" class="next" rel="next" title=""><i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.104.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
